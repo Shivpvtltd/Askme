@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SR777 CLUB - Wingo Game</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <div class="logo-container">
+    <h1 class="heading">SR777 CLUB</h1>
+    <button class="back-to-app" onclick="window.location.href='sr777.html'">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+  </div>
+  
+  <div class="wallet-box">
+    <h2><div id="walletBalanceBox">₹5000</div></h2>
+    <p>Wallet Balance</p>
+    <div class="wallet-buttons">
+      <button class="withdraw" onclick="window.location.href='sr777.html'"><i class="fas fa-rupee-sign"></i> Withdraw</button>
+      <button class="deposit" onclick="window.location.href='sr777.html'"><i class="fas fa-plus-circle"></i> Deposit</button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="top-box">
+      <div class="wingo">
+        <p>Trading 30s</p>
+        <div class="numbers" id="wingo-numbers"></div>
+      </div>
+      <div class="time-box">
+        <p>Time remaining</p>
+        <div class="time-remaining" id="timer">00:30</div>
+        <div class="period-number" id="period-number"></div>
+      </div>
+    </div>
+    
+    <div class="game-box">
+      <div class="heading-boxes">
+        <div class="heading-box green">Green C</div>
+        <div class="heading-box violet">Violet C</div>
+        <div class="heading-box red">Red C</div>
+      </div>
+      
+      <div class="chart-container">
+        <canvas id="trading-chart"></canvas>
+      </div>
+      
+      <div class="heading-boxes">
+        <div class="heading-box big"><i class="fas fa-arrow-up"></i> Up</div>
+        <div class="heading-box small"><i class="fas fa-arrow-down"></i> Down</div>
+      </div>
+    </div>
+    
+    <div class="section-header">
+      <button class="section-btn active" id="history-btn"><i class="fas fa-history"></i> History</button>
+      <button class="section-btn" id="progress-btn"><i class="fas fa-chart-line"></i> Progress</button>
+      <button class="section-btn" id="portfolio-btn"><i class="fas fa-wallet"></i> Portfolio</button>
+    </div>
+    
+    <div class="history-section" id="history-section">
+      <div class="history-header">
+        <span class="period-no">Period</span>
+        <span class="number-center">Trend</span>
+        <span class="big-small-right">Up/Down</span>
+      </div>
+      <div class="results-history" id="results-history"></div>
+      <div id="history-navigation">
+        <button id="previous-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+        <span id="page-info"></span>
+        <button id="next-btn">Next <i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+    
+    <div class="progress-section" id="progress-section" style="display:none;">
+      <div class="portfolio-header">
+        <h3><i class="fas fa-chart-line"></i> Your Progress</h3>
+      </div>
+      <div class="portfolio-content">
+        <div class="portfolio-item">
+          <span>Total Bets:</span>
+          <span id="total-bets">0</span>
+        </div>
+        <div class="portfolio-item">
+          <span>Total Wins:</span>
+          <span id="total-wins">₹0</span>
+        </div>
+        <div class="portfolio-item">
+          <span>Win Rate:</span>
+          <span id="win-rate">0%</span>
+        </div>
+        <div class="portfolio-item">
+          <span>Biggest Win:</span>
+          <span id="biggest-win">₹0</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="portfolio-section" id="portfolio-section" style="display:none;">
+      <div class="history-header">
+        <span class="bet-icon">Bet</span>
+        <span class="period-info">Period & Time</span>
+        <span class="bet-result">Result</span>
+      </div>
+      <div class="mybet-history" id="mybet-history"></div>
+      <div id="mybet-navigation">
+        <button id="mybet-previous-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+        <span id="mybet-page-info"></span>
+        <button id="mybet-next-btn">Next <i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="batting-overlay" id="battingOverlay">
+    <div class="batting-slide">
+      <h2 id="selectedOption"></h2>
+      <div class="bet-amount-container">
+        <input type="number" id="betAmount" placeholder="Enter Amount" min="1" max="1000000">
+        <div class="quick-bet-buttons">
+          <button class="quick-bet" data-amount="100">+100</button>
+          <button class="quick-bet" data-amount="500">+500</button>
+          <button class="quick-bet" data-amount="1000">+1000</button>
+        </div>
+      </div>
+      <div class="batting-buttons">
+        <button id="confirmBet" class="confirm"><i class="fas fa-check-circle"></i> Confirm</button>
+        <button id="cancelBet" class="cancel"><i class="fas fa-times-circle"></i> Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="sound-control">
+    <i class="fas fa-volume-up" id="sound-toggle"></i>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
