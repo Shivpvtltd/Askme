@@ -287,6 +287,20 @@ body {
   position: relative;
 }
 
+/* Candlestick Chart Styles (for custom candle colors) */
+.chartjs-candlestick .up {
+  fill: var(--success-color) !important;
+  stroke: var(--success-color) !important;
+}
+.chartjs-candlestick .down {
+  fill: var(--danger-color) !important;
+  stroke: var(--danger-color) !important;
+}
+.chartjs-candlestick .violet {
+  fill: var(--accent-color) !important;
+  stroke: var(--accent-color) !important;
+}
+
 /* Section Navigation */
 .section-header {
   display: flex;
